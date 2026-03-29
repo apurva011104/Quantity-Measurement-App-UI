@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<!-- WELCOME -->
+<div class="card welcome-card">
+  <h2>Welcome, {{ name }}</h2>
+</div>
+
+<!-- OPERATIONS -->
+<div class="card">
+  <h3>Operations ></h3>
+  <div class="card-row">
+    <div
+      class="card-btn"
+      *ngFor="let op of operations"
+      (click)="selectOperation(op)"
+    >
+      {{ op }}
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="card" *ngIf="categories.length > 0">
+  <h3>Measurement Categories ></h3>
+  <div class="card-row">
+    <div
+      class="card-btn"
+      *ngFor="let c of categories"
+      (click)="selectCategory(c)"
+    >
+      {{ c }}
+    </div>
+  </div>
+</div>
+
+<!-- INPUT SECTION -->
+<div class="card" *ngIf="showInput">
+
+  <!-- FIRST INPUT -->
+  <div class="input-row">
+    <label>Quantity:</label>
+    <input type="number" [(ngModel)]="value1">
+
+    <select [(ngModel)]="unit1">
+      <option *ngFor="let u of unitList" [value]="u">{{ u }}</option>
+    </select>
+  </div>
+
+  <!-- SECOND INPUT -->
+  <div class="input-row" *ngIf="showSecond">
+    <label>Quantity:</label>
+    <input type="number" [(ngModel)]="value2">
+
+    <select [(ngModel)]="unit2">
+      <option *ngFor="let u of unitList" [value]="u">{{ u }}</option>
+    </select>
+  </div>
+
+  <!-- TARGET UNIT -->
+  <div class="input-row" *ngIf="showTarget">
+    <label>Target Unit:</label>
+
+    <select [(ngModel)]="targetUnit">
+      <option *ngFor="let u of unitList" [value]="u">{{ u }}</option>
+    </select>
+  </div>
+
+  <!-- BUTTON -->
+  <button id="performBtn" (click)="perform()">Perform</button>
+</div>
+
+<!-- RESULT -->
+<div class="card result-card">
+  <h3>Result</h3>
+  <p>{{ result }}</p>
+</div>

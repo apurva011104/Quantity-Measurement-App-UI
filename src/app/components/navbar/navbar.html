@@ -1,0 +1,17 @@
+<nav class="navigation-bar">
+
+    <div class="nav-item navbar-brand">
+        <h2 (click)="goHome()" style="cursor:pointer;">Quantity Measurement</h2>
+    </div>
+
+    <div class="nav-item nav-menu">
+        <span class="menu-item" (click)="goHome()">Home</span>
+        <span class="menu-item" (click)="goProfile()">Profile</span>
+        <span class="menu-item" (click)="logout()">Logout</span>
+    </div>
+
+    <div class="nav-item">
+        <img src="assets/images/user-icon.jpg" id="user-icon" (click)="goProfile()">
+    </div>
+
+</nav>
