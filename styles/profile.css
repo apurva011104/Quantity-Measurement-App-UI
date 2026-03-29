@@ -1,0 +1,74 @@
+.profile-container {
+    padding: 20px;
+}
+
+/*------------------- USER CARD -------------------*/
+.profile-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-background-color);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px #00000010;
+}
+
+.profile-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+/*------------------- LOGOUT BUTTON -------------------*/
+#logoutBtn {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background: var(--secondary-color);
+}
+
+/*------------------- HISTORY CARD -------------------*/
+.history-card {
+    background: var(--card-background-color);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px #00000010;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/*------------------- HISTORY ITEM -------------------*/
+.history-item {
+    background: var(--soft-background-color);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*------------------- TEXT -------------------*/
+.history-left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}

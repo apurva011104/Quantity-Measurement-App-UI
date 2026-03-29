@@ -1,0 +1,82 @@
+:root{
+    --primary-color: #7FA37A;
+    --secondary-color: #6E8F6A;
+    --accent-color: #A8DFA2;
+    --background-color: #EEF4EA;
+    --soft-background-color:#6e8f6a;
+    --card-background-color: #F7FAF5;
+    --text-color: #2F3E2E;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--background-color);
+}
+
+/*------------------- NAVBAR -------------------*/
+.navigation-bar {
+    background-color: var(--primary-color);
+    width: 100%;
+    height: 10vh;
+    padding: 1vh 5vh;
+    display: flex;
+    color: var(--text-color);
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*------------------- ITEMS -------------------*/
+.nav-item {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*------------------- BRAND -------------------*/
+.nav-item > h2 {
+    font-size: 1.75em;
+    color: #1a2819;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+}
+
+/*------------------- USER ICON -------------------*/
+#user-icon {
+    height: 90%;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+#user-icon:hover {
+    transform: scale(1.1);
+}
+
+/*------------------- MENU -------------------*/
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    color: #1a2819;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 650px) {
+    .nav-menu {
+        display: none;
+    }
+}

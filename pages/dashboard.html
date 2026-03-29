@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+    <body>
+        <!-- NAVBAR -->
+        <nav class="navigation-bar">
+
+            <div class="nav-item navbar-brand">
+                <h2 id="homeBtn" style="cursor:pointer;">Quantity Measurement</h2>
+            </div>
+        
+            <div class="nav-item nav-menu">
+                <span class="menu-item" id="homeLink">Home</span>
+                <span class="menu-item" id="profileLink">Profile</span>
+                <span class="menu-item" id="logoutLink">Logout</span>
+            </div>
+        
+            <div class="nav-item">
+                <img id="user-icon" src="../assets/images/user-icon.jpg" alt="user-icon">
+            </div>
+        
+        </nav>
+
+        <!-- WELCOME CARD -->
+        <div class="card welcome-card">
+            <h2 id="welcomeText">Welcome</h2>
+        </div>
+    
+        <!-- OPERATIONS -->
+        <div class="card">
+            <h3>Operations ></h3>
+            <div class="card-row" id="operations">
+                <div class="card-btn">COMPARE</div>
+                <div class="card-btn">CONVERT</div>
+                <div class="card-btn">ADD</div>
+                <div class="card-btn">SUBTRACT</div>
+                <div class="card-btn">DIVIDE</div>
+            </div>
+        </div>
+    
+        <!-- CATEGORIES -->
+        <div class="card" id="categoryCard">
+            <h3>Measurement Categories ></h3>
+            <div class="card-row" id="categories"></div>
+        </div>
+    
+        <!-- INPUT SECTION -->
+        <div class="card hidden" id="inputSection">
+        
+            <!-- FIRST -->
+            <div class="input-row">
+                <label>Quantity:</label>
+                <input type="number" id="value1">
+                <select id="unit1"></select>
+            </div>
+        
+            <!-- SECOND (for add/subtract/compare/divide) -->
+            <div class="input-row" id="secondInput">
+                <label>Quantity:</label>
+                <input type="number" id="value2">
+                <select id="unit2"></select>
+            </div>
+        
+            <!-- TARGET (for convert only) -->
+            <div class="input-row hidden" id="targetUnitRow">
+                <label>Target Unit:</label>
+                <select id="targetUnit">
+                    <option value="">Default</option>
+                </select>
+            </div>
+        
+            <button id="performBtn">Perform</button>
+        </div>
+    
+        <!-- RESULT -->
+        <div class="card result-card">
+            <h3>Result</h3>
+            <p id="result">---</p>
+        </div>
+        <script src="../scripts/common/navbar.js"></script>
+        <script src="../scripts/pages/dashboard.js"></script>
+    </body>
+</html>

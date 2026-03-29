@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/profile.css">
+</head>
+<body>
+
+    <nav class="navigation-bar">
+    
+        <div class="nav-item navbar-brand">
+            <h2 id="homeBtn" style="cursor:pointer;">Quantity Measurement</h2>
+        </div>
+    
+        <div class="nav-item nav-menu">
+            <span class="menu-item" id="homeLink">Home</span>
+            <span class="menu-item" id="profileLink">Profile</span>
+            <span class="menu-item" id="logoutLink">Logout</span>
+        </div>
+    
+        <div class="nav-item">
+            <img id="user-icon" src="../assets/images/user-icon.jpg" alt="user-icon">
+        </div>
+    
+    </nav>
+    
+    <div class="profile-container">
+    
+        <div class="profile-card">
+            <div class="profile-left">
+                <img src="../assets/images/user-icon.jpg" class="profile-img">
+                <div>
+                    <h2 id="profileName"></h2>
+                    <p id="profileEmail"></p>
+                </div>
+            </div>
+        
+            <button id="logoutBtn">Logout</button>
+        </div>
+    
+        <div class="history-card">
+            <div class="history-header">
+                <h3>Operation History</h3>
+            
+                <select id="filter">
+                    <option value="">All</option>
+                    <option value="add">Add</option>
+                    <option value="subtract">Subtract</option>
+                    <option value="convert">Convert</option>
+                    <option value="equals">Compare</option>
+                </select>
+            </div>
+        
+            <div id="historyList"></div>
+        </div>
+    
+    </div>
+    
+    <script src="../scripts/common/navbar.js"></script>
+    <script src="../scripts/pages/profile.js"></script>
+</body>
+</html>
