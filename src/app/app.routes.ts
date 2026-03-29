@@ -6,5 +6,9 @@ import { Profile } from './pages/profile/profile';
 export const routes: Routes = [
   { path: '', component: Login },
   { path: 'dashboard', component: Dashboard },
-  { path: 'profile', component: Profile }
+  {
+      path: 'profile',
+      loadComponent: () => import('./pages/profile/profile').then(m => m.Profile),
+      runGuardsAndResolvers: 'always'   // ⭐ IMPORTANT
+    }
 ];

@@ -2,47 +2,46 @@
 
 <div class="profile-container">
 
-    <!-- USER CARD -->
-    <div class="profile-card">
-        <div class="profile-left">
-            <img src="assets/images/user-icon.jpg" class="profile-img">
-            <div>
-                <h2>{{ name }}</h2>
-                <p>{{ email }}</p>
-            </div>
-        </div>
-
-        <button (click)="logout()">Logout</button>
+  <!-- USER CARD -->
+  <div class="profile-card">
+    <div class="profile-left">
+      <img src="assets/images/user-icon.jpg" class="profile-img">
+      <div>
+        <h2>{{ name }}</h2>
+        <p>{{ email }}</p>
+      </div>
     </div>
 
-    <!-- HISTORY -->
-    <div class="history-card">
+    <button (click)="logout()">Logout</button>
+  </div>
 
-        <div class="history-header">
-            <h3>Operation History</h3>
+  <!-- HISTORY -->
+  <div class="history-card">
+    <div class="history-header">
+      <h3>Operation History</h3>
 
-            <select [(ngModel)]="filter" (change)="loadHistory()">
-                <option value="">All</option>
-                <option value="add">Add</option>
-                <option value="subtract">Subtract</option>
-                <option value="convert">Convert</option>
-                <option value="equals">Compare</option>
-            </select>
-        </div>
-
-        <div *ngIf="history.length === 0">
-            No history found
-        </div>
-
-        <div *ngFor="let item of history" class="history-item">
-            <div class="history-left">
-                <span><b>OPERATION: {{ item.operationType }}</b></span>
-                <span>OPERAND1: {{ item.operand1 }}</span>
-                <span *ngIf="item.operand2">OPERAND2: {{ item.operand2 }}</span>
-                <span><b>RESULT: {{ item.result }}</b></span>
-            </div>
-        </div>
-
+      <select [(ngModel)]="filter" (change)="onFilterChange()">
+        <option value="">All</option>
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+        <option value="convert">Convert</option>
+        <option value="equals">Compare</option>
+      </select>
     </div>
+
+    <div *ngIf="history.length === 0">
+      No history found
+    </div>
+
+    <div *ngFor="let item of history" class="history-item">
+      <div class="history-left">
+        <span><b>OPERATION: {{ item.operationType }}</b></span>
+        <span>OPERAND1: {{ item.operand1 }}</span>
+        <span *ngIf="item.operand2">OPERAND2: {{ item.operand2 }}</span>
+        <span><b>RESULT: {{ item.result }}</b></span>
+      </div>
+    </div>
+
+  </div>
 
 </div>

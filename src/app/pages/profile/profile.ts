@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 import { Navbar } from '../../components/navbar/navbar';
 
 @Component({
@@ -20,19 +21,25 @@ export class Profile implements OnInit {
   history: any[] = [];
   filter = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.token = localStorage.getItem("token") || '';
+    const token = localStorage.getItem("token");
 
-    if (!this.token) {
+    if (!token) {
       window.location.href = "/";
+      return;
     }
+
+    this.token = token;
 
     this.name = localStorage.getItem("userName") || '';
     this.email = localStorage.getItem("userEmail") || '';
 
-    this.loadHistory();
+    // ✅ FIX: reload history every time route is hit
+    this.route.url.subscribe(() => {
+      this.loadHistory();
+    });
   }
 
   /* -------- LOAD HISTORY -------- */
@@ -46,9 +53,18 @@ export class Profile implements OnInit {
     this.http.get<any[]>(url, {
       headers: { Authorization: "Bearer " + this.token }
     }).subscribe({
-      next: (data) => this.history = data,
-      error: () => this.history = []
+      next: (data) => {
+        this.history = data;
+      },
+      error: () => {
+        this.history = [];
+      }
     });
+  }
+
+  /* -------- FILTER CHANGE -------- */
+  onFilterChange() {
+    this.loadHistory();
   }
 
   /* -------- LOGOUT -------- */
