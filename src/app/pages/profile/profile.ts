@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Navbar } from '../../components/navbar/navbar';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-profile',
@@ -44,7 +45,7 @@ export class Profile implements OnInit {
 
   /* -------- LOAD HISTORY -------- */
   loadHistory() {
-    let url = "http://localhost:8080/quantities/operationsHistory";
+    let url = `${environment.backendUrl}/quantities/operationsHistory`;
 
     if (this.filter) {
       url += "/" + this.filter;
@@ -69,7 +70,7 @@ export class Profile implements OnInit {
 
   /* -------- LOGOUT -------- */
   logout() {
-    this.http.post("http://localhost:8080/auth/logout", {}, {
+    this.http.post(`${environment.backendUrl}/auth/logout`, {}, {
       headers: { Authorization: "Bearer " + this.token }
     }).subscribe({
       next: () => {

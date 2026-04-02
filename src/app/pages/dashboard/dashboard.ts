@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Navbar } from '../../components/navbar/navbar';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-dashboard',
@@ -136,7 +137,7 @@ export class Dashboard implements OnInit {
       return;
     }
 
-    let url = `http://localhost:8080/quantities/${this.selectedOperation}`;
+    let url = `${environment.backendUrl}/quantities/${this.selectedOperation}`;
     let body: any;
 
     if (this.selectedOperation === "convert") {
@@ -186,14 +187,14 @@ export class Dashboard implements OnInit {
           this.result = `Result: ${JSON.stringify(data)}`;
         }
 
-        this.cdr.detectChanges(); // 🔥 FORCE UI UPDATE
+        this.cdr.detectChanges();
       },
       error: (err) => {
         console.log("ERROR:", err);
 
         this.result = err.error?.message || "Error occurred";
 
-        this.cdr.detectChanges(); // 🔥 FORCE UI UPDATE
+        this.cdr.detectChanges();
       }
     });
   }

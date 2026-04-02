@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-login',
@@ -30,8 +31,8 @@ export class Login {
     e.preventDefault();
 
     const url = this.isRegister
-      ? "http://localhost:8080/auth/register"
-      : "http://localhost:8080/auth/login";
+      ? `${environment.backendUrl}/auth/register`
+      : `${environment.backendUrl}/auth/login`;
 
     const body = this.isRegister
       ? { name: this.name, email: this.email, password: this.password }
@@ -55,6 +56,6 @@ export class Login {
 
   /* -------- Google Login -------- */
   googleLogin() {
-    window.location.href = "http://localhost:8080/oauth2/authorization/google";
+    window.location.href = `${environment.backendUrl}/oauth2/authorization/google`;
   }
 }
