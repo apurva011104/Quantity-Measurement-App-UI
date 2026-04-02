@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-navbar',
@@ -23,7 +24,7 @@ export class Navbar {
   logout() {
     const token = localStorage.getItem("token");
 
-    this.http.post("http://localhost:8080/auth/logout", {}, {
+    this.http.post(`${environment.backendUrl}/auth/logout`, {}, {
       headers: { Authorization: "Bearer " + token }
     }).subscribe({
       next: () => {
